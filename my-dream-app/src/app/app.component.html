@@ -1,0 +1,66 @@
+
+<ul>
+  <li><a routerLink="/about">About</a></li>
+  <li><a routerLink="/hello">Hello</a></li>
+</ul>
+
+<router-outlet></router-outlet>
+
+<div class="black">
+  <h1>{{title}}</h1>
+</div>
+<div class="ash">
+  <h2>{{name}}</h2>
+  <h2>{{email}}</h2>
+  
+  <button (click)="toggleHobbies()" class="btn">Mostrar Hobbies</button>
+
+  <div *ngIf="showHobbies" class="component2">
+    <h3>hobbies:</h3>
+    <ul>
+      <li *ngFor="let hobbie of hobbies">{{hobbie}}</li>
+    </ul>
+  </div>
+  
+  <form (submit)="newHobbie(hobbie)">
+    <input #hobbie type="text" placeholder="ingresa hobbie">
+  </form>
+  <a href="{{webpage}}" target="_blank">Visita mi sitio web</a>
+  <div class="black">
+    <h1>{{title}}</h1>
+  </div>
+</div>
+
+<ul>
+    <app-hello-world *ngFor="let user of users" [nameUser]="user"></app-hello-world>
+</ul>
+<button (click)="sayHello()">Hazme click</button>
+
+<h1>Desde app.component.html</h1>
+<form (submit)="addUser(newUser)">
+  <input type="text" #newUser>
+  <button>Agregar usuario</button>
+</form>
+<ul>
+  <li *ngFor="let user of users">
+    {{user}} <button (click)="deleteUser(user)">Borrar usuario</button>
+  </li>
+</ul>
+
+<div>
+  <form>
+    <input type="text" name="name" [(ngModel)]="name">
+    <input type="text" name="age" [(ngModel)]="age">
+  </form>
+  <h2>Name: {{ name }}</h2>
+  <h2>Age: {{ age }}</h2>
+</div>
+
+<div class="black">
+  <h1>{{ title }}</h1>
+</div>
+<div class="ash" *ngFor="let post of posts">
+  <h2>{{ post.title }}</h2>
+  <h3>{{ post.body }}</h3>
+  <h4>Author: {{ post.userId }}</h4>
+</div>
